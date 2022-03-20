@@ -3,7 +3,7 @@ name: deploy
 # main 브랜치에 push시 동작한다
 on:
   push:
-    branches: [master, main]
+    branches: [master]
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
     steps:
       # 실제 main branch에 push하면 동작할 내용들
       #
-      # dependencies 설치 
+      # dependencies 설치
       # java 설치
       - uses: actions/setup-java@v2
         with:
@@ -34,10 +34,10 @@ jobs:
       - name: checkout frontend
         uses: actions/checkout@v2
         with:
-          repository: songmi134/santada100
+          repository: songmi134/santada2
           path: ./frontend
 
-      
+
       # backend 폴더에 frontend 프로젝트 설치
       # build 하기
       - name: build frontend to resources
@@ -50,11 +50,11 @@ jobs:
           npm run build
           cd ..
           cp -r frontend/build/* src/main/resources/static/
-      
+
       # heroku에 배포하기
       - name: deploy to heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "santadanet" ###############
+          heroku_app_name: "santadanet" ##########
           heroku_email: "songmi134@gmail.com"
