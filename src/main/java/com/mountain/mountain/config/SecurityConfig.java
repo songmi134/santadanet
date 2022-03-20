@@ -30,9 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable() // CSRF 보호기능 disable
                 .authorizeRequests() // 요청에 대한 권한 지정
                 .anyRequest().authenticated() // 모든 요청이 인증되어야한다.
-                .and()
-                .addFilterBefore(authFilterContainer.getFilter(),
-                        UsernamePasswordAuthenticationFilter.class);
+                //.and()
+                //.addFilterBefore(authFilterContainer.getFilter(),
+                //        UsernamePasswordAuthenticationFilter.class);
     };
 
     @Override
