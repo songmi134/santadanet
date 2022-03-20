@@ -34,9 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(authFilterContainer.getFilter(),
                         UsernamePasswordAuthenticationFilter.class);
 
-        http.authorizeRequests()
-                .antMatchers("/pages/**").hasRole("ADIM") // no effect
-                .anyRequest().authenticated();
+
     };
 
     @Override
