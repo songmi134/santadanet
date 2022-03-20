@@ -4,7 +4,7 @@ name: deploy
 on:
   push:
     branches: [master]
-    
+
 jobs:
   build:
     # 해당 동작들을 돌릴 OS
@@ -18,23 +18,23 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-          
+
       # node 설치
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-          
-     
+
+
       # checkout 하기
       # backend
       - name: checkout backend
         uses: actions/checkout@v2
-        
+
       # frontend
       - name: checkout frontend
         uses: actions/checkout@v2
         with:
-          repository: songmi134/santada2
+          repository: songmi134/santada100
           path: ./frontend
 
       
@@ -56,5 +56,5 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "santadainfo" ##########
+          heroku_app_name: "santadanet" ##########
           heroku_email: "songmi134@gmail.com"
