@@ -34,7 +34,7 @@ jobs:
       - name: checkout frontend
         uses: actions/checkout@v2
         with:
-          repository: skdksldk1485/mountain
+          repository: songmi134/santada200
           path: ./frontend
 
 
@@ -43,7 +43,6 @@ jobs:
       - name: build frontend to resources
         run: |
           cd frontend
-          rm --cached frontend
           rm package-lock.json
           REACT_APP_KEY=AIzaSyD2b6FnC66ExbnsIRKi605t7_bptAE_3aw
           export REACT_APP_KEY
